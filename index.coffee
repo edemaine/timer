@@ -1,13 +1,14 @@
+min1 = 60 * 1000  # 1 minute
+
 renderTimePart = (x) -> x.toString().padStart 2, '0'
 
 class Timer
   constructor: (@dom) ->
-    @duration = 10 * 60 * 1000  # 10 minutes
+    @duration = min1
     @started = null
     @elapsed = 0
-  addDuration: (minutes = 0, seconds = 0) ->
-    @duration.minutes += minutes
-    @duration.seconds += seconds
+  addDuration: (delta) ->
+    @duration += delta
     @update()
 
   remaining: ->
@@ -20,6 +21,7 @@ class Timer
   update: ->
     left = @remaining()
     left /= 1000
+    left = Math.ceil left
     @dom.getElementById 'minutes'
     .textContent = renderTimePart left // 60
     @dom.getElementById 'seconds'
@@ -44,6 +46,7 @@ class Timer
   reset: ->
     @pause()
     @elapsed = 0
+    @update()
 
   schedule: ->
     next = @remaining()
@@ -61,8 +64,8 @@ window.onload = ->
       when 'r', 'R'
         timer.reset()
       when '+', '='
-        timer.addDuration 1, 0
+        timer.addDuration min1
       when '-', '_'
-        timer.addDuration -1, 0
+        timer.addDuration -min1
       when ' ', 'p', 'P'
         timer.toggle()
