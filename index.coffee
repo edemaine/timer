@@ -1,6 +1,6 @@
 bellCount = 3  # one bell at T minus 2, two bells at T minus 1, three bells at T
 
-min1 = 60 * 1000  # 1 minute
+minute = 60 * 1000  # 1 minute
 
 renderTimePart = (x) -> x.toString().padStart 2, '0'
 
@@ -12,7 +12,7 @@ ringBells = (count) ->
 
 class Timer
   constructor: (@dom) ->
-    @duration = min1
+    @duration = 5 * minute
     @started = null
     @elapsed = 0
     @bells = 0
@@ -80,8 +80,8 @@ window.onload = ->
       when 'r', 'R'
         timer.reset()
       when '+', '='
-        timer.addDuration min1
+        timer.addDuration minute
       when '-', '_'
-        timer.addDuration -min1
+        timer.addDuration -minute
       when ' ', 'p', 'P'
         timer.toggle()
