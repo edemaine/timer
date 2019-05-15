@@ -38,6 +38,11 @@ class Timer
   update: ->
     left = @remaining()
     left /= 1000
+    if left < 0
+      @dom.classList.add 'negative'
+      left = -left
+    else
+      @dom.classList.remove 'negative'
     left = Math.ceil left
     @dom.getElementById 'minutes'
     .textContent = renderTimePart left // 60
