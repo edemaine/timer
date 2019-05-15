@@ -1,12 +1,21 @@
+bellCount = 3  # one bell at T minus 2, two bells at T minus 1, three bells at T
+
 min1 = 60 * 1000  # 1 minute
 
 renderTimePart = (x) -> x.toString().padStart 2, '0'
+
+ringBells = (count) ->
+  bell = document.getElementById 'bell'
+  console.log bell
+  bell.play()
+  .catch (e) -> console.error e.message
 
 class Timer
   constructor: (@dom) ->
     @duration = min1
     @started = null
     @elapsed = 0
+    @bells = 0
   addDuration: (delta) ->
     @duration += delta
     @update()
@@ -25,7 +34,14 @@ class Timer
     @dom.getElementById 'minutes'
     .textContent = renderTimePart left // 60
     @dom.getElementById 'seconds'
-    .textContent = renderTimePart Math.floor left %% 60
+    .textContent = renderTimePart left %% 60
+    mins = Math.ceil left / 60
+
+    if @started and mins <= bellCount
+      bells = bellCount - mins
+      if bells > @bells
+        @bells = bells
+        ringBells @bells
 
   toggle: ->
     if @started?
