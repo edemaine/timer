@@ -37,7 +37,7 @@ Then open `index.html`.
 I was inspired by the following related apps:
 <ul>
 <li> <a href="https://www.cs.hmc.edu/~geoff/countdowntimer.html">User-Configurable Countdown Timer</a>, a CGI web app by Geoff Kuenning. This is highly configurable and works well, except the sound playback is inconsistent (on Windows).
-<li> <a href="https://play.google.com/store/apps/details?id=org.tmurakam.presentationtimer">Presentation Timer</a>, an Android app by Takuya Murakami. This is what I used for years, and works great for identical-length presentations, but is too slow to reconfigure for presentations of varying lengths.
+<li> <a href="https://play.google.com/store/apps/details?id=org.tmurakam.presentationtimer">Presentation Timer</a>, an Android app by Takuya Murakami. This is what I used for years, and works great for identical-length presentations, but is tedious to reconfigure for presentations of varying lengths.
 </ul>
 
 ## License
