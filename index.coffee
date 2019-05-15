@@ -36,8 +36,19 @@ class Timer
       left -= now - @started
     left
   update: ->
+    ## Compute number of seconds left
     left = @remaining()
     left /= 1000
+
+    ## Bell ringing
+    mins = Math.ceil left / 60
+    if @started and mins < bellCount
+      bells = bellCount - mins
+      if @bells < bells <= bellCount
+        @bells = bells
+        ringBells @bells
+
+    ## Update display
     if left < 0
       @dom.classList.add 'negative'
       left = -left
@@ -48,13 +59,6 @@ class Timer
     .textContent = renderTimePart left // 60
     @dom.getElementById 'seconds'
     .textContent = renderTimePart left %% 60
-    mins = Math.ceil left / 60
-
-    if @started and mins < bellCount
-      bells = bellCount - mins
-      if @bells < bells <= bellCount
-        @bells = bells
-        ringBells @bells
 
   toggle: ->
     if @started?
