@@ -4,7 +4,7 @@ html
     link(href="index.css", rel="stylesheet")
     script(src="index.js")
   body
-    audio#bell(src="bell.mp3") Your browser doesn't support the &lt;audio&gt; tag, so the bell sound won't work.
+    audio#bell(src="bell.mp3", preload) Your browser doesn't support the &lt;audio&gt; tag, so the bell sound won't work.
     svg#timer(viewBox="-43 -23 86 24.5")
       text#minutes(x="-25") 00
       text.colon(y="-2.5") :

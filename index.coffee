@@ -1,13 +1,22 @@
 bellCount = 3  # one bell at T minus 2, two bells at T minus 1, three bells at T
+bellSkip = 0.3
+interBellDelay = 400
 
 minute = 60 * 1000  # 1 minute
 
 renderTimePart = (x) -> x.toString().padStart 2, '0'
 
+ringTimeout = null
 ringBells = (count) ->
+  clearTimeout ringTimeout if ringTimeout?
   bell = document.getElementById 'bell'
+  bell.pause()
+  bell.currentTime = bellSkip
   bell.play()
   .catch (e) -> console.error e.message
+  if count > 1
+    ringTimeout = setTimeout (-> ringBells count-1), interBellDelay
+  null
 
 class Timer
   constructor: (@dom) ->
