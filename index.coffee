@@ -2,18 +2,47 @@ renderTimePart = (x) -> x.toString().padStart 2, '0'
 
 class Timer
   constructor: (@dom) ->
-    @duration =
-      minutes: 10
-      seconds: 0
+    @duration = 10 * 60 * 1000  # 10 minutes
+    @started = null
+    @elapsed = 0
   addDuration: (minutes = 0, seconds = 0) ->
     @duration.minutes += minutes
     @duration.seconds += seconds
-  reset: ->
+    @update()
+
+  remaining: ->
+    left = @duration
+    left -= @elapsed
+    if @started
+      now = new Date
+      left -= now - @started
+    left
   update: ->
+    left = @remaining()
+    left /= 1000
     @dom.getElementById 'minutes'
-    .textContent = renderTimePart @duration.minutes
+    .textContent = renderTimePart left // 60
     @dom.getElementById 'seconds'
-    .textContent = renderTimePart @duration.seconds
+    .textContent = renderTimePart Math.floor left %% 60
+
+  toggle: ->
+    if @started?
+      @pause()
+    else
+      @start()
+  start: ->
+    return if @started?
+    @started = new Date
+    @schedule()
+  pause: ->
+    return unless @started?
+    now = new Date
+    @elapsed += now - @started
+    @started = null
+    @update()
+  reset: ->
+    @pause()
+    @elapsed = 0
 
 window.onload = ->
   timer = new Timer document.getElementById 'timer'
@@ -26,4 +55,5 @@ window.onload = ->
         timer.addDuration 1, 0
       when '-', '_'
         timer.addDuration -1, 0
-    timer.update()
+      when ' ', 'p', 'P'
+        timer.toggle()
