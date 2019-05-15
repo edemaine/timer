@@ -36,6 +36,7 @@ class Timer
     @schedule()
   pause: ->
     return unless @started?
+    clearTimeout @timeout if @timeout?
     now = new Date
     @elapsed += now - @started
     @started = null
@@ -43,6 +44,14 @@ class Timer
   reset: ->
     @pause()
     @elapsed = 0
+
+  schedule: ->
+    next = @remaining()
+    next -= Math.floor next
+    @timeout = setTimeout =>
+      @update()
+      @schedule()
+    , next
 
 window.onload = ->
   timer = new Timer document.getElementById 'timer'
