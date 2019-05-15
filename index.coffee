@@ -36,7 +36,7 @@ class Timer
     .textContent = renderTimePart left %% 60
     mins = Math.ceil left / 60
 
-    if @started and mins <= bellCount
+    if @started and mins < bellCount
       bells = bellCount - mins
       if @bells < bells <= bellCount
         @bells = bells
