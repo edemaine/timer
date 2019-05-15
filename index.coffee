@@ -6,7 +6,6 @@ renderTimePart = (x) -> x.toString().padStart 2, '0'
 
 ringBells = (count) ->
   bell = document.getElementById 'bell'
-  console.log bell
   bell.play()
   .catch (e) -> console.error e.message
 
@@ -14,10 +13,10 @@ class Timer
   constructor: (@dom) ->
     @duration = 5 * minute
     @started = null
-    @elapsed = 0
-    @bells = 0
+    @elapsed = @bells = 0
   addDuration: (delta) ->
     @duration += delta
+    @bells = 0
     @update()
 
   remaining: ->
@@ -39,7 +38,7 @@ class Timer
 
     if @started and mins <= bellCount
       bells = bellCount - mins
-      if bells > @bells
+      if @bells < bells <= bellCount
         @bells = bells
         ringBells @bells
 
@@ -61,7 +60,7 @@ class Timer
     @update()
   reset: ->
     @pause()
-    @elapsed = 0
+    @elapsed = @bells = 0
     @update()
 
   schedule: ->
