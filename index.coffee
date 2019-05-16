@@ -92,7 +92,8 @@ class Timer
 window.onload = ->
   timer = new Timer document.getElementById 'timer'
   timer.update()
-  window.addEventListener 'keypress', (e) ->
+
+  window.addEventListener 'keypress', handleKey = (e) ->
     switch e.key
       when 'r', 'R'
         timer.reset()
@@ -102,3 +103,7 @@ window.onload = ->
         timer.addDuration -minute
       when ' ', 'p', 'P'
         timer.toggle()
+
+  for button in document.getElementsByClassName 'button'
+    button.addEventListener 'click', (e) ->
+      handleKey key: e.currentTarget.getAttribute 'data-key'
