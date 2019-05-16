@@ -1,6 +1,6 @@
 html
   head
-    link(href="https://fonts.googleapis.com/css?family=Roboto:900", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto:400,900", rel="stylesheet")
     link(href="index.css", rel="stylesheet")
     script(src="index.js")
   body
@@ -10,3 +10,7 @@ html
       text.colon(y="-2.5") :
       text#seconds(x="25") 00
       text.overtime(x="0",y="8") OVERTIME: STOP NOW
+    .help
+      span.tip <kbd>Space</kbd>/<kbd>p</kbd> start/pause/resume timer
+      span.tip <kbd>+</kbd>/<kbd>-</kbd> adjust timer duration
+      span.tip <kbd>r</kbd> reset timer

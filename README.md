@@ -21,9 +21,9 @@ Main features:
 
 Control the timer using the following keyboard commands:
 
-* `+`/`-`: Adjust the number of minutes on the timer.
-* Spacebar (or `p`): Start/pause the timer.
-* `r`: Reset the timer.
+* `+`/`-`: Adjust the number of minutes on the timer (duration).
+* Spacebar (or `p`): Start/pause/resume the timer.
+* `r`: Reset the timer: stop timer and return to full duration.
 
 ## Installation
 
