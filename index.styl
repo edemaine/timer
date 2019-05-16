@@ -37,9 +37,13 @@ kbd
 .button
   cursor: pointer
   user-select: none
-  :hover
-    background-color: purple
+  &:hover
+    background-color: DarkMagenta
+    kbd
+      background-color: DarkViolet
+kbd.button:hover
+  background-color: DarkViolet
 .tip
   display: inline-block
 .tip + .tip
-  padding-left: 2em
+  margin-left: 2em
