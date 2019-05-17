@@ -3,11 +3,19 @@
   "version": "0.0.0",
   "description": "Timer/countdown app",
   "main": "index.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/edemaine/timer.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "gulp"
   },
-  "author": "Erik Demaine",
+  "author": {
+    "name": "Erik Demaine",
+    "email": "edemaine@mit.edu",
+    "url": "http://erikdemaine.org/"
+  },
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
