@@ -30,7 +30,7 @@ Control the timer using the following keyboard commands:
 
 To install this web app in your own web space,
 clone this repository and run `npm install`
-(to compile into HTML, CSS, and JavaScript).
+(to compile into HTML and JavaScript).
 Then open `index.html`.
 
 ## Related Apps

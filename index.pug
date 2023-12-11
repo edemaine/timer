@@ -1,7 +1,8 @@
 html
   head
     link(href="https://fonts.googleapis.com/css?family=Roboto:400,900", rel="stylesheet")
-    link(href="index.css", rel="stylesheet")
+    style
+      include:stylus index.styl
     script(src="index.js")
   body
     audio#bell(src="bell.mp3", preload) Your browser doesn't support the &lt;audio&gt; tag, so the bell sound won't work.

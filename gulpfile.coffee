@@ -1,8 +1,7 @@
 gulp = require 'gulp'
 gulpCoffee = require 'gulp-coffee'
-gulpChmod = require 'gulp-chmod'
 gulpPug = require 'gulp-pug'
-gulpStylus = require 'gulp-stylus'
+gulpChmod = require 'gulp-chmod'
 
 exports.coffee = coffee = ->
   gulp.src '*.coffee', ignore: 'gulpfile.coffee'
@@ -16,17 +15,9 @@ exports.pug = pug = ->
   .pipe gulpChmod 0o644
   .pipe gulp.dest './'
 
-exports.stylus = stylus = ->
-  gulp.src '*.styl'
-  .pipe gulpStylus pretty: true
-  .pipe gulpChmod 0o644
-  .pipe gulp.dest './'
-
 exports.watch = watch = ->
-  gulp.watch '*.coffee', coffee
-  gulp.watch '*.pug', pug
-  gulp.watch '*.styl', stylus
+  gulp.watch '*.coffee', ignoreInitial: false, coffee
+  gulp.watch '*.pug', ignoreInitial: false, pug
+  gulp.watch '*.styl', pug
 
-exports.default = gulp.series ...[
-  gulp.parallel coffee, pug, stylus
-]
+exports.default = gulp.parallel coffee, pug

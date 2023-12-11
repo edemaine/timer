@@ -4,12 +4,13 @@
   "description": "Timer/countdown app",
   "main": "index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/edemaine/timer.git"
+    "type": "git",
+    "url": "https://github.com/edemaine/timer.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "gulp",
+    "build": "gulp",
     "watch": "gulp watch"
   },
   "author": {
@@ -20,9 +21,9 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-chmod": "^2.0.0",
+    "gulp-chmod": "^3.0.0",
     "gulp-coffee": "^3.0.3",
-    "gulp-pug": "^4.0.1",
-    "gulp-stylus": "^2.7.0"
+    "gulp-pug": "^5.0.0",
+    "jstransformer-stylus": "^1.5.0"
   }
 }
