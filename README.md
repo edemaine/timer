@@ -15,7 +15,7 @@ Main features:
   (to avoid mistakes).
 * Controllable by keyboard interface (see below).
 
-## [Demo](http://erikdemaine.org/timer/)
+## [Demo](https://erikdemaine.org/timer/)
 
 ## Usage
 
