@@ -13,18 +13,23 @@ Main features:
   and a warning displays.
 * If the timer hasn't been started, the display is gray
   (to avoid mistakes).
-* Controllable by keyboard interface (see below).
+* Controllable by keyboard or touch interface (see below).
 
 ## [Demo](https://erikdemaine.org/timer/)
 
 ## Usage
 
-Control the timer using the following keyboard commands:
+Control the timer using the following keyboard commands
+(or by tapping on one of the corresponding buttons):
 
-* `+`/`-`: Adjust the number of minutes on the timer (duration).
-* Spacebar (or `p`): Start/pause/resume the timer.
-* `r`: Reset the timer: stop timer and return to full duration.
-* `b`: Ring the bell (for audio testing or if you want a talk to stop early).
+* <kbd>+</kbd>/<kbd>-</kbd>: Adjust the number of minutes on the timer (duration).
+* Spacebar (or <kbd>p</kbd>): Start/pause/resume the timer.
+* <kbd>r</kbd>: Reset the timer: stop timer and return to full duration.
+* <kbd>b</kbd>: Ring the bell (for audio testing or if you want a talk to stop early).
+
+You can also manipulate the timer duration (down to the second level)
+by tapping on one of the digits: top half increments, and
+bottom half decrements.
 
 ## Installation
 

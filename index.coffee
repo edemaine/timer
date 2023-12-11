@@ -119,6 +119,9 @@ window.onload = ->
       when 'd', 'D'
         toggleDark()
 
-  for button in document.getElementsByClassName 'button'
-    button.addEventListener 'click', (e) ->
-      handleKey key: e.currentTarget.getAttribute 'data-key'
+  document.body.addEventListener 'click', (e) =>
+    {classList} = e.target
+    if classList.contains 'button'
+      handleKey key: e.target.dataset.key
+    else if classList.contains 'change'
+      timer.addDuration e.target.dataset.seconds * 1000
