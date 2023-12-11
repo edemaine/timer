@@ -12,6 +12,8 @@ Main features:
      and three bells at zero minutes remaining.
 <li> After the timer expires, the display turns red, counts up from zero,
      and a warning displays.
+<li> If the timer hasn't been started, the display is gray
+     (to avoid mistakes).
 <li> Controllable by keyboard interface (see below).
 </ul>
 

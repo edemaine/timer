@@ -49,6 +49,7 @@ class Timer
         ringBells @bells
 
     ## Update display
+    @dom.classList.toggle 'started', @started?
     if left < 0
       @dom.classList.add 'negative'
       left = -left
@@ -68,6 +69,7 @@ class Timer
   start: ->
     return if @started?
     @started = new Date
+    @update()
     @schedule()
   pause: ->
     return unless @started?
