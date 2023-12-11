@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "gulp"
+    "prepare": "gulp",
+    "watch": "gulp watch"
   },
   "author": {
     "name": "Erik Demaine",
