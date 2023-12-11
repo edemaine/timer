@@ -19,7 +19,7 @@ ringBells = (count) ->
   null
 
 class Timer
-  constructor: (@dom) ->
+  constructor: (@dom, @callback) ->
     @duration = 5 * minute
     @started = null
     @elapsed = @bells = 0
@@ -61,6 +61,8 @@ class Timer
     @dom.getElementById 'seconds'
     .textContent = renderTimePart left %% 60
 
+    @callback?.call @, @
+
   toggle: ->
     if @started?
       @pause()
@@ -101,7 +103,15 @@ toggleDark = ->
   classList.toggle 'light', not dark
 
 window.onload = ->
-  timer = new Timer document.getElementById 'timer'
+  timer = new Timer document.getElementById('timer'), ->
+    document.getElementById('verb').innerHTML = (
+      if timer.started
+        'pause'
+      else if timer.elapsed
+        'resume'
+      else
+        'start'
+    ) + ' timer'
   timer.update()
 
   window.addEventListener 'keypress', handleKey = (e) ->
