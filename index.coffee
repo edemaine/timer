@@ -91,6 +91,15 @@ class Timer
       @schedule()
     , next
 
+toggleDark = ->
+  {classList} = document.documentElement
+  dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  dark = true if classList.contains 'dark'
+  dark = false if classList.contains 'light'
+  dark = not dark
+  classList.toggle 'dark', dark
+  classList.toggle 'light', not dark
+
 window.onload = ->
   timer = new Timer document.getElementById 'timer'
   timer.update()
@@ -107,6 +116,8 @@ window.onload = ->
         timer.toggle()
       when 'b', 'B'
         ringBells 1
+      when 'd', 'D'
+        toggleDark()
 
   for button in document.getElementsByClassName 'button'
     button.addEventListener 'click', (e) ->

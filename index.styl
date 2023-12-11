@@ -1,8 +1,30 @@
+lightMode()
+  --background: white
+  --foreground: black
+  --gray: #666
+darkMode()
+  --background: black
+  --foreground: white
+  --gray: #999
+:root
+  &.dark
+    darkMode()
+  &.light
+    lightMode()
+@media (prefers-color-scheme: light)
+  :root
+    lightMode()
+@media (prefers-color-scheme: dark)
+  :root
+    darkMode()
+
 body
   font-family: 'Roboto', sans-serif
   margin: 0px
   display: flex
   flex-direction: column
+  background-color: var(--background)
+  color: var(--foreground)
 svg
   margin: 10px
   flex-grow: 1
@@ -10,9 +32,9 @@ text
   text-anchor: middle
   font-size: 30px
   font-weight: 900
-  fill: #666
+  fill: var(--gray)
   /.started &
-    fill: black
+    fill: var(--foreground)
 text.overtime
   font-size: 8px
 
