@@ -103,6 +103,8 @@ window.onload = ->
         timer.addDuration -minute
       when ' ', 'p', 'P'
         timer.toggle()
+      when 'b', 'B'
+        ringBells 1
 
   for button in document.getElementsByClassName 'button'
     button.addEventListener 'click', (e) ->

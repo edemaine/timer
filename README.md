@@ -24,6 +24,7 @@ Control the timer using the following keyboard commands:
 * `+`/`-`: Adjust the number of minutes on the timer (duration).
 * Spacebar (or `p`): Start/pause/resume the timer.
 * `r`: Reset the timer: stop timer and return to full duration.
+* `b`: Ring the bell (for audio testing or if you want a talk to stop early).
 
 ## Installation
 
